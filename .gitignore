@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+*.egg-info/
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Chrome Extension (keep only source files)
+*.crx
+*.pem
