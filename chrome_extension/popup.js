@@ -69,7 +69,7 @@ askBtn.addEventListener("click", async () => {
 
     const page_text = results[0].result;
 
-    const response = await fetch("http://127.0.0.1:8000/api/chat/", {
+    const response = await fetch("https://web-chatbot-2lhr.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
