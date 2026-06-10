@@ -8,5 +8,4 @@ faiss-cpu
 huggingface-hub
 python-dotenv
 gunicorn
-sentence-transformers
 langchain-text-splitters

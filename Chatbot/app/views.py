@@ -5,6 +5,7 @@ from langchain_huggingface import (
     HuggingFaceEndpoint,
     ChatHuggingFace
 )
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.documents import Document
@@ -43,7 +44,7 @@ class ChatView(APIView):
         # Emobedding Generation
         from langchain_huggingface import HuggingFaceEmbeddings
 
-        Embedding = HuggingFaceEmbeddings(
+        Embedding = HuggingFaceEndpointemb(
         model_name="BAAI/bge-small-en-v1.5",
         model_kwargs={"device": "cpu"},
         encode_kwargs={"normalize_embeddings": True}
@@ -55,7 +56,7 @@ class ChatView(APIView):
         # Retreive 
         retreiver = Vector_store.as_retriever(search_type="similarity" , search_kwargs={"k":10})
         
-        llm = HuggingFaceEndpoint(
+        llm = HuggingFaceEndpointEmbeddings(
         repo_id="Qwen/Qwen2.5-72B-Instruct",
         task="text-generation",
         max_new_tokens=512,
