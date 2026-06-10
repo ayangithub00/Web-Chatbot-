@@ -44,7 +44,7 @@ class ChatView(APIView):
         # Emobedding Generation
         from langchain_huggingface import HuggingFaceEmbeddings
 
-        Embedding = HuggingFaceEndpointemb(
+        Embedding = HuggingFaceEndpointEmbeddings(
         model_name="BAAI/bge-small-en-v1.5",
         model_kwargs={"device": "cpu"},
         encode_kwargs={"normalize_embeddings": True}
@@ -56,7 +56,7 @@ class ChatView(APIView):
         # Retreive 
         retreiver = Vector_store.as_retriever(search_type="similarity" , search_kwargs={"k":10})
         
-        llm = HuggingFaceEndpointEmbeddings(
+        llm = HuggingFaceEndpoint(
         repo_id="Qwen/Qwen2.5-72B-Instruct",
         task="text-generation",
         max_new_tokens=512,
