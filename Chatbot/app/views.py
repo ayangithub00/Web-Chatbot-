@@ -41,8 +41,12 @@ class ChatView(APIView):
         chunks   = splitter.create_documents([page_text])
         
         # Emobedding Generation
+        from langchain_huggingface import HuggingFaceEmbeddings
+
         Embedding = HuggingFaceEmbeddings(
-            model_name = "BAAI/bge-small-en-v1.5"
+        model_name="BAAI/bge-small-en-v1.5",
+        model_kwargs={"device": "cpu"},
+        encode_kwargs={"normalize_embeddings": True}
         )
         
         # Storing In Vector 
